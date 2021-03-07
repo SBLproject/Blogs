@@ -135,21 +135,7 @@
                   </div>
                </div>
             </div>
-            {% csrf_token %}
-            {% for blger in bloggers %}
-            <div class="row">
-               <div class="col-md-6">
-                  <img src="/media/{{blger.avatar}}" alt="" />
-               </div>
-               <div class="col-md-6">
-                  <div class="full blog_cont">
-                     {% comment %} <h4></h4> {% endcomment %}
-                     <h1>{{blger.name}}</h1>
-                     <p>{{blger.content}}</p>
-                  </div>
-               </div>
-            </div>
-            {% endfor %}
+            
             <div class="row margin_top_30">
                <div class="col-md-12">
                   <div class="button_section full center margin_top_30">

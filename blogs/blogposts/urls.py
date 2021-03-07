@@ -7,5 +7,6 @@ urlpatterns = [
     path("marketing", views.marketing, name='marketing'),
     path("blog", views.blog, name='blog'),
     path("contactus", views.contactus, name='contactus'),
+    path("blogview/<int:myid>", views.blogview , name="blogview"),
     # path("login", views.lo, name='login'),
 ]
