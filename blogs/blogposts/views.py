@@ -6,8 +6,8 @@ from .models import blogger
 # Create your views here.
 
 def index(request):  
-    bl= blogger.objects.all()
-    return render(request, "index.html")
+    bloggers= blogger.objects.all()
+    return render(request, "index.html",{'bloggers':bloggers})
 def aboutus(request):  
     return render(request, "about.html")
 def marketing(request):  
