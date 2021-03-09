@@ -5,17 +5,19 @@ from django.contrib.auth.models import User, auth
 from .models import blogger
 # Create your views here.
 
-def index(request):  
+def index(request):
     return render(request, "index.html")
-def aboutus(request):  
+def aboutus(request):
     return render(request, "about.html")
-def marketing(request):  
+def marketing(request):
     return render(request, "marketing.html")
-def blog(request):  
+def blog(request):
     bloggers= blogger.objects.all()
     return render(request, "blog.html",{'bloggers':bloggers})
-def contactus(request):  
+def contactus(request):
     return render(request, "contact.html")
+def newblog(request):
+    return render(request, "newblog.html")
 def blogview(request, myid):
     blog = blogger.objects.filter(id=myid)
     # print(sliced)
