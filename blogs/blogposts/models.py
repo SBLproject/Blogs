@@ -1,5 +1,5 @@
 from django.db import models
-
+import os
 # Create your models here.
 class blogger(models.Model):
     fname = models.TextField()
@@ -9,6 +9,6 @@ class blogger(models.Model):
     email_id = models.EmailField()
     content = models.TextField()
     category = models.TextField()
-    avatar = models.ImageField(upload_to='pics')
+    avatar = models.ImageField(null=True, blank=True,  upload_to='pics')
     title =models.TextField()
 

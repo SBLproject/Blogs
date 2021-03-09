@@ -86,12 +86,27 @@
          <!-- end header inner -->
       </header>
 
-                    <form action="addblgr" method="POST">
+        <div class="col-md-9 ">
+                    <div class="box-for-names" id="hello-world">
+                        <h2 class="loginheader text-center"><b>Enter your details </b></h2>
+                        <!-- <a href="tel:+91 1234567891"> <button id="commonbuttons"><b>Call Us</b></button></a> -->
+                    </div>
+                    <form action="newblog" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label id="white" for="exampleFormControlInput1">Name </label>
-                            <input type="text" class="form-control" name="name" id="exampleFormControlInput1"
-                                placeholder="name">
+                            <label id="white" for="exampleFormControlInput1">First Name </label>
+                            <input type="text" class="form-control" name="fname" id="exampleFormControlInput1"
+                                placeholder="first name">
+                        </div>
+                        <div class="form-group">
+                            <label id="white" for="exampleFormControlInput1">Last Name </label>
+                            <input type="text" class="form-control" name="lname" id="exampleFormControlInput1"
+                                placeholder="last name">
+                        </div>
+                        <div class="form-group">
+                            <label id="white" for="exampleFormControlInput1">Title of the Blog</label>
+                            <input type="text" class="form-control" name="title" id="exampleFormControlInput1"
+                                placeholder="title">
                         </div>
                         <div class="form-group">
                             <label id="white" for="exampleFormControlInput3">Age</label>
@@ -99,11 +114,11 @@
                                 placeholder="age">
                         </div>
                         <div class="form-group">
-                            <label id="white" for="exampleFormControlSelect1">Gender</label>
-                            <select class="form-control" name="gender" id="exampleFormControlSelect1">
-                                <option>M</option>
-                                <option>F</option>
-                            </select>
+                            <label id="white" for="exampleFormControlInput1">Gender</label>
+                            <input type="text" name="gender" id="exampleFormControlInput1">
+                                {% comment %} <option>M</option>
+                                <option>F</option> {% endcomment %}
+                            {% comment %} </select> {% endcomment %}
                         </div>
                         <div class="form-group">
                             <label id="white" for="exampleFormControlInput1">Content</label>
@@ -121,9 +136,14 @@
                                 placeholder="name@example.com">
                         </div>
                         <div class="form-group">
+                            <label id="white" for="exampleFormControlInput3">Select Image</label>
+                             <input type="file" name="image" class="form-control" required>
+                        </div>
+                        {% comment %} <div class="form-group">
                             <label id="white" for="exampleFormControlInput3">Date</label>
                             <input type="date" class="form-control" name="date" id="exampleFormControlInput3">
-                        </div>
+                        </div> {% endcomment %}
+
                         <div>
                                 <br>
                                 <div class="text-center">
@@ -131,3 +151,16 @@
                                         type="submit">
                                 </div>
                     </form>
+                                </div>
+
+
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/plugin.js' %}"></script>
+      <!-- Scrollbar Js Files -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+   </body>
+</html>

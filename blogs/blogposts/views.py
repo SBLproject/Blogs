@@ -17,6 +17,20 @@ def blog(request):
 def contactus(request):
     return render(request, "contact.html")
 def newblog(request):
+    if request.method == 'POST':
+        blgr = blogger()
+        blgr.fname = request.POST['fname']
+        blgr.lname = request.POST['lname']
+        blgr.title = request.POST['title']
+        blgr.age = request.POST['age']
+        blgr.gender = request.POST['gender']
+        blgr.content = request.POST['content']
+        blgr.category = request.POST['category']
+        blgr.email_id = request.POST['emailId']
+        files = request.FILES  # multivalued dict
+        blgr.avatar = files.get("image")
+        blgr.save()
+        return redirect('blog')
     return render(request, "newblog.html")
 def blogview(request, myid):
     blog = blogger.objects.filter(id=myid)
