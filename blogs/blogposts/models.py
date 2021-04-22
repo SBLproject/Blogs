@@ -12,3 +12,4 @@ class blogger(models.Model):
     avatar = models.ImageField(null=True, blank=True,  upload_to='pics')
     title =models.TextField()
 
+

@@ -38,14 +38,13 @@
       <!-- header -->
       <header>
          <!-- header inner -->
-         <div class="container-fluid">
+          <div class="container-fluid">
             <div class="row">
                <div class="col-lg-3 logo_section">
                   <div class="full">
-                     <div class="center-desk">
-                        <div class="logo"> <a href="index.html"></a> </div>
-                        {% comment %} <img src="images/logo.png" alt="#"> {% endcomment %}
-                     </div>
+                     {% comment %} <div class="center-desk">
+                        <div class="logo"> <a href="{% static 'index.html' %}"><img src="{% static 'images/logo.png' %}" alt="#"></a> </div>
+                     </div> {% endcomment %}
                   </div>
                </div>
                <div class="col-lg-9">
@@ -54,13 +53,10 @@
                         <nav class="main-menu">
                            <ul class="menu-area-main">
                               <li class="active">
-                                 <a href=" ">Home</a>
+                                 <a href="/">Home</a>
                               </li>
                               <li>
                                  <a href="/aboutus">About</a>
-                              </li>
-                              <li>
-                                 <a href="/marketing">Marketing</a>
                               </li>
                               <li>
                                  <a href="/blog">Blog</a>
@@ -68,15 +64,32 @@
                               <li>
                                  <a href="/contactus">Contact us</a>
                               </li>
+
+                              {% if user.is_authenticated %}
+                              
                               <li>
-                                 <a href="/login">Login</a>
+                                 <a href="/logout">Logout</a>
                               </li>
                               <li>
                                  <a href="/newblog">Newblog</a>
                               </li>
+                              {% else %}
+
                               <li>
-                                 <a href="#"><img src="{%static 'images/search_icon.png'%}" alt="#" /></a>
+                                 <a href="/login">Login</a>
                               </li>
+                              <li>
+                                 <a href="/register">Register</a>
+                              </li>
+                               {% endif %}
+                               {% if user.is_authenticated %}
+                              <li class="active">
+                                 <a>Hello, {{user.username}}</a>
+                              </li>
+                               {% endif %}
+                              {% comment %} <li>
+                                 <a href="#"><img src="{% static 'images/search_icon.png' %}" alt="#" /></a>
+                              </li> {% endcomment %}
                            </ul>
                         </nav>
                      </div>
