@@ -4,6 +4,7 @@ import os
 class blogger(models.Model):
     fname = models.TextField()
     lname = models.TextField(default=" ")
+    username = models.TextField(default=" ")
     gender = models.CharField(max_length=5)
     age = models.IntegerField()
     email_id = models.EmailField()

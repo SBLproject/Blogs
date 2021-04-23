@@ -29,6 +29,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    </head>
    <style>
+   img.set {
+   width: 40%;
+   height: auto;
+   }
    img.rounded-corners {
       border-radius: 20px;
       }
@@ -74,6 +78,9 @@
                               
                               <li>
                                  <a href="/logout">Logout</a>
+                              </li>
+                              <li>
+                                 <a href="/myblog/{{user.username}}">Myblogs</a>
                               </li>
                               <li>
                                  <a href="/newblog">Newblog</a>
@@ -174,11 +181,10 @@
                                     </thead>
                                     <tbody>
 
-                                      	{% for cat,cou in myfile %}
+                                      	{% for cat,cou,img in myfile %}
                                      <tr> 
 
-                                          
-                                            <td><img src="{% static 'images/blog2.png' %}" alt="#" class="rounded-corners" width="150" height="150"/></td>
+                                            <td><a href="blogs/{{cat}}"><img src="/media/{{img}}" alt="#" class="rounded-corners" width="150" height="150"/></a></td>
 
                                             <td><a href="blogs/{{cat}}"> {{cat}}</a></td>
 
@@ -358,52 +364,55 @@
       </div> {% endcomment %}
       <!-- end section -->
       <!-- footer -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
       <footer>
          <div class="container">
             <div class="row">
                <div class="col-lg-4 col-md-6">
-                  <a href="#"><img src="{% static 'images/footer_logo.png' %}" alt="#" /></a>
+                  <a href="/"><img src="{% static 'images/blog.jpg' %}" alt="#" /></a>
                   <ul class="contact_information">
-                     <li><span><img src="{% static 'images/location_icon.png' %}" alt="#" /></span><span class="text_cont">London 145<br>United Kingdom</span></li>
-                     <li><span><img src="{% static 'images/phone_icon.png' %}" alt="#" /></span><span class="text_cont">987 654 3210<br>987 654 3210</span></li>
-                     <li><span><img src="{% static 'images/mail_icon.png' %}" alt="#" /></span><span class="text_cont">demo@gmail.com<br>support@gmail.com</span></li>
-                  </ul>
-                  <ul class="social_icon">
-                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                     <li><span><img src="{% static 'images/location_icon.png' %}" alt="#" /></span><span class="text_cont">F.C.R.I.T. Vashi<br>Navi Mumbai</span></li>
+                     <li><span><img src="{% static 'images/mail_icon.png' %}" alt="#" /></span><span class="text_cont">akshatasangwai1234@gmail.com<br>shriyad2303@gmail.com<br>skaliappan1908@gmail.com</span></li>
                   </ul>
                </div>
                <div class="col-lg-2 col-md-6">
                   <div class="footer_links">
                      <h3>Quick link</h3>
                      <ul>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Features</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Evens</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Markrting</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Blog</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Testimonial</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i> Contact</a></li>
+                        <li><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a></li>
+                        <li><a href="/blog"><i class="fa fa-angle-right" aria-hidden="true"></i> Blogs</a></li>
+                        <li><a href="/login"><i class="fa fa-angle-right" aria-hidden="true"></i> Login</a></li>
+                        <li><a href="/register"><i class="fa fa-angle-right" aria-hidden="true"></i> Register</a></li>
+                        <li><a href="/aboutus"><i class="fa fa-angle-right" aria-hidden="true"></i> About Us</a></li>
+                        <li><a href="/contactus"><i class="fa fa-angle-right" aria-hidden="true"></i> Contact Us</a></li>
                      </ul>
                   </div>
                </div>
                <div class="col-lg-3 col-md-6">
                   <div class="footer_links">
-                     <h3>Instagram</h3>
+                     <h3>Github</h3>
                      <ol>
-                        <li><img class="img-responsive" src="{% static 'images/footer_blog.png' %}" alt="#" /></li>
-                        <li><img class="img-responsive" src="{% static 'images/footer_blog.png' %}" alt="#" /></li>
-                        <li><img class="img-responsive" src="{% static 'images/footer_blog.png' %}" alt="#" /></li>
-                        <li><img class="img-responsive" src="{% static 'images/footer_blog.png' %}" alt="#" /></li>
+                        <li><a href="https://github.com/AKSHATA-22"><img class="set" src="{% static 'images/pic.jpeg' %}" alt="#" /></a>
+                        <a href="https://github.com/kaliappan01"><img class="set" src="{% static 'images/kaliappan.jpeg' %}" alt="#" /></a>
+                        <a href="https://github.com/Shriyad2123"><img class="set" src="{% static 'images/shriya.jpeg' %}" alt="#" /></a></li>
+                        <li></li>
                      </ol>
                   </div>
                </div>
                <div class="col-lg-3 col-md-6">
                   <div class="footer_links">
                      <h3>Contact us</h3>
-                     <form action="index.html">
+                     <form action="contactus" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
                         <fieldset>
                            <div class="field">
                               <input type="text" name="name" placeholder="Your Name" required="" />
@@ -412,10 +421,13 @@
                               <input type="email" name="email" placeholder="Email" required="" />
                            </div>
                            <div class="field">
+                              <input type="password" name="password" placeholder="Email password" required="" />
+                           </div>
+                           <div class="field">
                               <input type="text" name="subject" placeholder="Subject" required="" />
                            </div>
                            <div class="field">
-                              <textarea placeholder="Message"></textarea>
+                              <textarea name="body" placeholder="Message"></textarea>
                            </div>
                            <div class="field">
                               <div class="center">
@@ -429,15 +441,7 @@
             </div>
          </div>
       </footer>
-      <div class="cpy">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <p>Copyright © 2019 Design by <a href="% static 'https://html.design/' %}">Free Html Templates</a></p>
-               </div>
-            </div>
-         </div>
-      </div>
+     
       <!-- end footer -->
       <!-- Javascript files-->
       <script src="{% static 'js/jquery.min.js' %}"></script>

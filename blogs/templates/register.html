@@ -58,6 +58,10 @@
             input[type=submit]:hover {
             background-color: #dc1005;
             }
+            img.set {
+            width: 40%;
+            height: auto;
+            }
     </style>
    <!-- body -->
    <body class="main-layout">
@@ -89,7 +93,6 @@
                               <li>
                                  <a href="/aboutus">About</a>
                               </li>
-                              
                               <li>
                                  <a href="/blog">Blog</a>
                               </li>
@@ -101,6 +104,9 @@
                               
                               <li>
                                  <a href="/logout">Logout</a>
+                              </li>
+                              <li>
+                                 <a href="/myblog/{{user.username}}">Myblogs</a>
                               </li>
                               <li>
                                  <a href="/newblog">Newblog</a>
@@ -190,7 +196,122 @@
                     <h3>{{message}}</h3>
                     {% endfor %}
             </div>
-
+            <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+      <footer>
+      <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-6">
+                  <a href="/"><img src="{% static 'images/blog.jpg' %}" alt="#" /></a>
+                  <ul class="contact_information">
+                     <li><span><img src="{% static 'images/location_icon.png' %}" alt="#" /></span><span class="text_cont">F.C.R.I.T. Vashi<br>Navi Mumbai</span></li>
+                     <li><span><img src="{% static 'images/mail_icon.png' %}" alt="#" /></span><span class="text_cont">akshatasangwai1234@gmail.com<br>shriyad2303@gmail.com<br>skaliappan1908@gmail.com</span></li>
+                  </ul>
+                  {% comment %} <ul class="social_icon">
+                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  </ul> {% endcomment %}
+               </div>
+               <div class="col-lg-2 col-md-6">
+                  <div class="footer_links">
+                     <h3>Quick link</h3>
+                     <ul>
+                        <li><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i> Home</a></li>
+                        <li><a href="/blog"><i class="fa fa-angle-right" aria-hidden="true"></i> Blogs</a></li>
+                        <li><a href="/login"><i class="fa fa-angle-right" aria-hidden="true"></i> Login</a></li>
+                        <li><a href="/register"><i class="fa fa-angle-right" aria-hidden="true"></i> Register</a></li>
+                        <li><a href="/aboutus"><i class="fa fa-angle-right" aria-hidden="true"></i> About Us</a></li>
+                        <li><a href="/contactus"><i class="fa fa-angle-right" aria-hidden="true"></i> Contact Us</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer_links">
+                     <h3>Github</h3>
+                     <ol>
+                        <li><a href="https://github.com/AKSHATA-22"><img class="set" src="{% static 'images/pic.jpeg' %}" alt="#" /></a>
+                        <a href="https://github.com/kaliappan01"><img class="set" src="{% static 'images/kaliappan.jpeg' %}" alt="#" /></a>
+                        <a href="https://github.com/Shriyad2123"><img class="set" src="{% static 'images/shriya.jpeg' %}" alt="#" /></a></li>
+                        <li></li>
+                     </ol>
+                  </div>
+               </div>
+               <div class="col-lg-3 col-md-6">
+                  <div class="footer_links">
+                     <h3>Contact us</h3>
+                     <form action="contactus" method="POST" enctype="multipart/form-data">
+                     {% csrf_token %}
+                        <fieldset>
+                           <div class="field">
+                              <input type="text" name="name" placeholder="Your Name" required="" />
+                           </div>
+                           <div class="field">
+                              <input type="email" name="email" placeholder="Email" required="" />
+                           </div>
+                           <div class="field">
+                              <input type="password" name="password" placeholder="Email password" required="" />
+                           </div>
+                           <div class="field">
+                              <input type="text" name="subject" placeholder="Subject" required="" />
+                           </div>
+                           <div class="field">
+                              <textarea name="body" placeholder="Message"></textarea>
+                           </div>
+                           <div class="field">
+                              <div class="center">
+                                 <button class="reply_bt">Send</button>
+                              </div>
+                           </div>
+                        </fieldset>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
 
      <script src="{% static 'js/jquery.min.js' %}"></script>
       <script src="{% static 'js/popper.min.js' %}"></script>
@@ -203,61 +324,3 @@
    </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %} <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-    <script>'main.js'</script>
-</head>
-<body>
-    <form action="register" method="POST">
-        {% csrf_token %}
-
-        <input type="text" name="first_name" placeholder="First name"><br>
-        <input type="text" name="last_name" placeholder="Last name"><br>
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="email" name="email" placeholder="email id"><br>
-        <input type="password" name="password1" placeholder="Password"><br>
-        <input type="password" name="password2" placeholder="Confirm password"><br>
-        <input type="submit">
-
-
-    </form>
-    <div>
-
-        {% for message in messages %}
-        <h3>{{message}}</h3>
-        {% endfor %}
-    </div>
-</body>
-</html> {% endcomment %}
