@@ -136,8 +136,10 @@ def logout(request):
 
 def liked(request,slug,blogid):
     blog = blogger.objects.get(pk=blogid)
-    if like(likedby=slug,blogliked=blog) :
-        return redirect('blog')
+    userliked = like.objects.filter(likedby=slug)
+    for li in userliked:
+        if li.pk is blogid:
+            return redirect('blog')
     else:
         blog.likes+=1
         blog.save()
