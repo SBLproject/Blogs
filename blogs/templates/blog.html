@@ -33,6 +33,10 @@
    width: 40%;
    height: auto;
    }
+   .fa-heart:hover{
+   color:#f5021b !important;
+   transform: scale(1.5);
+   }
    </style>
    <!-- body -->
    <body class="main-layout">
@@ -135,17 +139,7 @@
                   <div class="full blog_cont">
                      <h4>{{blger.title}}</h4>
                      <h5>{{blger.category}}</h5>
-                     {% comment %} <p> {% endcomment %}
-                     {% comment %} {% with ''|center:30 as range %} {% endcomment %}
-                     {% comment %} {% for i in range %} {% endcomment %}
-                     {% comment %} {{ i }} {% endcomment %}
-                     {% comment %} {% set count = count + 1 %} {% endcomment %}
-                     {% comment %} {{if count==25}} {% endcomment %}
-                     {% comment %} {{blger.content}} {% endcomment %}
-                     {% comment %} {% endfor %} {% endcomment %}
-                     {% comment %} {{.......}} {% endcomment %}
-                     {% comment %} {{% endwith %}} {% endcomment %}
-                     {% comment %} </p> {% endcomment %}
+                     <a href="/liked/{{user.username}}/{{blger.id}}"><i class="fa fa-heart fa-2x" aria-hidden="true">{{blger.likes}}</i></a><br><br>
                   <a href="/blogview/{{blger.id}}"><button class="btn btn-danger cart my-3">Quick View</button></a>
                   </div>
                </div>

@@ -2,7 +2,7 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from .models import blogger
+from .models import blogger,like
 import smtplib
 from email.mime.text import MIMEText
 from getpass import getpass
@@ -133,3 +133,21 @@ def register(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+def liked(request,slug,blogid):
+    blog = blogger.objects.get(pk=blogid)
+    if like(likedby=slug,blogliked=blog) :
+        return redirect('blog')
+    else:
+        blog.likes+=1
+        blog.save()
+        likeobj = like()
+        likeobj.likedby = slug
+        likeobj.blogliked = blog
+        likeobj.save()
+        return redirect('blog')
+
+def myliked(request,slug):
+    likelist=like.objects.filter(likedby=slug)
+    blogger = likelist.blogliked.all()
+    return render(request, "blog.html",{'bloggers':bloggers})
