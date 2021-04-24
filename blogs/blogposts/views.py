@@ -149,5 +149,7 @@ def liked(request,slug,blogid):
 
 def myliked(request,slug):
     likelist=like.objects.filter(likedby=slug)
-    blogger = likelist.blogliked.all()
+    bloggers = []
+    for li in likelist:
+        bloggers.append(li.blogliked)
     return render(request, "blog.html",{'bloggers':bloggers})
