@@ -80,7 +80,6 @@ def newblog(request):
     return render(request, "newblog.html")
 def blogview(request, myid):
     blog = blogger.objects.filter(id=myid)
-    # print(sliced)
     return render(request,'prodView.html', {'blog': blog[0]})
 
 def login(request):
