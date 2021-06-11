@@ -61,9 +61,6 @@ tensorboard==2.4.1
 tensorboard-data-server==0.4.0
 tensorboard-plugin-wit==1.8.0
 termcolor==1.1.0
-tf-estimator-nightly==2.5.0.dev2021031201
-tf-nightly==2.5.0.dev20210321
-tf-nightly-gpu==2.5.0.dev20210311
 threadpoolctl==2.1.0
 torch==1.8.0
 torchvision==0.9.0
