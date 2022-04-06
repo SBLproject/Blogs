@@ -46,7 +46,7 @@ def contactus(request):
         subj = request.POST['subject']
         body = request.POST['body']
 
-        toid=["akshatasangwai1234@gmail.com","skaliappan1908@gmail.com","shriyad2303@gmail.com"]
+        toid=["shriyad2303@gmail.com"]
         
         msg=MIMEText(body)
         msg['From']=fromid
